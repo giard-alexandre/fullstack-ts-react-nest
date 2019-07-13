@@ -1,0 +1,33 @@
+version: "3"
+
+services:
+  cm:
+    build: .
+    #    volumes:     # Possibly only useful for developing inside docker?
+    #      - .:/usr/src/app
+    #      - /usr/src/app/node_modules
+    ports:
+      - ${APP_PORT}:3001
+      - 9229:9229
+    depends_on:
+      - cm_db
+    environment:
+      DB_HOST: cm_db
+      APP_PORT:
+      DB_PORT: 5432
+      DB_USERNAME:
+      DB_PASSWORD:
+      DB_DATABASE:
+  cm_db:
+    image: postgres:11.2-alpine
+    ports:
+      - "${DB_PORT}:5432"
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_DB: ${DB_DATABASE}
+
+volumes:
+  dbdata:

@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  cm_db:
+    image: postgres:11.2-alpine
+    ports:
+      - "${DB_PORT}:5432"
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_DB: ${DB_DATABASE}
+
+volumes:
+  dbdata:
