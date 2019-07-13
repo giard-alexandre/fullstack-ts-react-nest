@@ -1,23 +1,30 @@
-# FAST FullStack React with TypeScript starter kit.
-
-<img src="https://github.com/gilamran/fullstack-typescript/raw/master/assets/images/logo.png" width="150">
+# FullStack React with TypeScript and NestJS starter kit.
+<p align="center">
+  <img src="https://github.com/gilamran/fullstack-typescript/raw/master/assets/images/logo.png" width="120">
+  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
+</p>
+<p align="center">Fullstack React/Typescript/NestJs starter, heavily based off of <a href="https://github.com/gilamran/fullstack-typescript" target="blank">fullstack-typescript</a> by <a href="https://github.com/gilamran" target="blank">gilamran</a>.</p>
 
 ---
 
 ### Quick Start
 
-Just clone this repository into your own project folder. and start working
+Just fork the repo and then clone your forked repository into your own project folder.
 
 ```
-git clone https://github.com/gilamran/fullstack-typescript.git <MyProjectName>
-cd <MyProjectName>
+git clone <YourRepoUrl> <YourProjectName>
+cd <YourProjectName>
 npm install
-npm run dev
+cp .env.example .env
+docker-compose up
+npm start
 ```
 
-If you want to detach from this repository into your own repository do this:
+If you want, you can just clone and detach from this repository into your own repository do this:
 
 ```
+git clone https://github.com/heuristicAL/fullstack-ts-react-nest.git <YourProjectName>
+cd <YourProjectName>
 git remote remove origin
 git remote add origin YOUR_REPO_URL
 git push -u origin master
@@ -41,30 +48,35 @@ git push -u origin master
 
 ```
 .
-├── /node_modules/          # 3rd-party libraries and utilities
-├── /dist/                  # All the generated files will go here, and will run from this folder
-├── /src/                   # The source code of the application
-│   ├── /client/            # React app
-│   ├── /server/            # Express server app
-│   ├── /shared/            # The shared code between the client and the server
-├── /assets/                # images, css, jsons etc.
-├── .babelrc                # babel configuration
-├── .gitignore              # ignored git files and folders
-├── .nvmrc                  # Force nodejs version
-├── .env                    # (ignored) Can be used to override environment variables
-├── package.json            # The list of 3rd party libraries and utilities
-└── tslint.json             # TypeScript linting configuration file
-├── README.md               # This file
+├── /node_modules/                  # 3rd-party libraries and utilities
+├── /dist/                          # All the generated files will go here, and will run from this folder
+├── /assets/                        # images, css, jsons etc.
+├── /client/                        # React app
+├── /server/                        # Express server app
+├── /shared/                        # The shared code between the client and the server
+├── /views/                         # the views for the server (currently only loads the react app)
+├── .babelrc                        # babel configuration
+├── .gitignore                      # ignored git files and folders
+├── .nvmrc                          # Force nodejs version
+├── .env                            # (ignored) Can be used to override environment variables
+├── docker-compose.build.yml        # docker-compose for building prod image
+├── docker-compose.yml              # docker-compose for running dependencies locally
+├── package.json                    # The list of 3rd party libraries and utilities
+└── tslint.json                     # TypeScript linting configuration file
+└── tsconfig.json                   # TypeScript configuration file
+└── tsconfig.webpack-config.json    # TypeScript configuration file
+├── README.md                       # This file
 ```
 
 ### What's included
 
 - [React v16](https://facebook.github.io/react/)
-- [React router v4](https://github.com/ReactTraining/react-router)
+- [React router v5](https://github.com/ReactTraining/react-router)
 - [Material-ui](https://github.com/mui-org/material-ui)
 - [Jest](https://github.com/facebook/jest)
 - [Css modules](https://github.com/css-modules/css-modules)
 - [Axios](https://github.com/mzabriskie/axios) (For Client/Server communication)
+- [NestJs](https://github.com/nestjs/nest)
 
 ### Usage
 
@@ -75,7 +87,8 @@ git push -u origin master
 
 ### Config
 
-All applications require a config mechanism, for example, `SLACK_API_TOKEN`. Things that you don't want in your git history, you want a different environment to have different value (dev/staging/production). This repo uses the file `config.js` (not ts) to access all your app variables. And a `.env` file to override variable in dev environment. This file is ignored from git.
+All applications require a config mechanism, for example, `SLACK_API_TOKEN`. Things that you don't want in your git history, you want a different environment to have different value (dev/staging/production). This repo uses the file `config.ts` to access and setup all pre-nest init app variables. And a `.env` file to override variable in dev environment. This file is ignored from git.
+Once Nest is up and running, there is a [ConfigService](https://github.com/heuristicAL/fullstack-ts-react-nest/blob/master/server/src/config/config.service.ts) which can be injected on-demand.
 
 ---
 
