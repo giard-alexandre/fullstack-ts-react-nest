@@ -1,7 +1,7 @@
 {
-  "name": "fullstack-typescript",
-  "version": "1.1.0",
-  "description": "",
+  "name": "fullstack-ts-react-nest",
+  "version": "1.0.0",
+  "description": "FullStack React with TypeScript and NestJS starter kit.",
   "main": "index.js",
   "engines": {
     "node": ">=6.9.5"
