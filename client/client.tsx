@@ -8,6 +8,8 @@ import * as ReactDOM from 'react-dom';
 import { hot } from 'react-hot-loader';
 import { App } from './App';
 
+const favicon = require('../assets/images/logo.png');
+
 const theme = createMuiTheme({
     palette: {
         primary: indigo,
@@ -17,6 +19,7 @@ const theme = createMuiTheme({
 
 ReactDOM.render(
     <React.Fragment>
+        <link rel="shortcut icon" type="image/x-icon" href={favicon} />
         <CssBaseline />
         <MuiThemeProvider theme={theme}>
             <SnackbarProvider anchorOrigin={{vertical: 'bottom', horizontal: 'right'}}>
