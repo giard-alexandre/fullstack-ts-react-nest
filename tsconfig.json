@@ -5,6 +5,7 @@
     "sourceMap": true,
     "noEmit": true,
     "skipLibCheck": true,
+    "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
     "isolatedModules": true,
     "outDir": "./dist",
