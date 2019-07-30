@@ -1,7 +1,7 @@
 import { HttpService, Injectable } from '@nestjs/common';
 import * as fs from 'fs';
 import * as path from 'path';
-import { IS_DEV, WEBPACK_PORT } from '../../config';
+import { IS_DEV, WEBPACK_PORT } from '../../../config';
 
 export interface IManifest {
     'main.js': string;

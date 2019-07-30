@@ -1,4 +1,5 @@
 import cssnano from 'cssnano';
+import fs from 'fs';
 import OpenBrowserPlugin from 'open-browser-webpack-plugin';
 import path from 'path';
 import * as webpack from 'webpack';
@@ -9,6 +10,9 @@ import ManifestPlugin from 'webpack-manifest-plugin';
 import { IS_DEV, SERVER_PORT, WEBPACK_PORT } from './server/config';
 
 const plugins = [new ManifestPlugin()];
+
+const lessToJs = require('less-vars-to-js');
+const themeVariables = lessToJs(fs.readFileSync(path.join(__dirname, './ant-theme-vars.less'), 'utf8'));
 
 // import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 // plugins.push(new BundleAnalyzerPlugin());
@@ -51,7 +55,8 @@ const config: webpack.Configuration = {
                 exclude: [/node_modules/, nodeModulesPath],
             },
             {
-                test: /\.css$/,
+                test: /\.less$/,
+                exclude: /node_modules/,
                 use: [
                     {
                         loader: 'style-loader',
@@ -65,6 +70,13 @@ const config: webpack.Configuration = {
                         },
                     },
                     {
+                        loader: 'less-loader',
+                        options: {
+                            javascriptEnabled: true
+                            // modifyVars: themeVariables,
+                        }
+                    },
+                    {
                         loader: 'postcss-loader',
                         options: {
                             sourceMap: IS_DEV,
@@ -72,6 +84,29 @@ const config: webpack.Configuration = {
                         },
                     },
                 ],
+            },
+            {
+                test: /node_modules\/.*\.less$/,
+                use: [
+                    {
+                        loader: 'style-loader',
+                    },
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            sourceMap: true,
+                        },
+                    },
+                    {
+                        loader: 'less-loader',
+                        options: {
+                            javascriptEnabled: true,
+                            sourceMap: true,
+                            // modifyVars: themeVariables,
+                            // root: path.resolve(__dirname, './')
+                        }
+                    },
+                ]
             },
             {
                 test: /.jpe?g$|.gif$|.png$|.svg$|.woff$|.woff2$|.ttf$|.eot$/,

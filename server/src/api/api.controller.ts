@@ -2,14 +2,12 @@ import { Controller, Get, Render } from '@nestjs/common';
 import { ManifestManagerService } from './manifest-manager/manifest-manager.service';
 
 @Controller()
-export class AppController {
+export class ApiController {
     constructor(private manifestManager: ManifestManagerService) {
     }
 
-    @Get('**')
-    @Render('page')
+    @Get('/')
     async root() {
-        const manifest = await this.manifestManager.getManifest();
-        return {manifest};
+        return 'Hello World';
     }
 }

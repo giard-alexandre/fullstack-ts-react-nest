@@ -51,7 +51,9 @@ git push -u origin master
 ├── /dist/                          # All the generated files will go here, and will run from this folder
 ├── /assets/                        # images, css, jsons etc.
 ├── /client/                        # React app
-├── /server/                        # Express server app
+├── /server/                        # Express server app.
+    ├── /spa/                       # Global path that loads the client React app.
+    ├── /api/                       # Api REST endpoints.
 ├── /shared/                        # The shared code between the client and the server
 ├── /views/                         # the views for the server (currently only loads the react app)
 ├── .babelrc                        # babel configuration
@@ -71,18 +73,26 @@ git push -u origin master
 
 - [React v16](https://facebook.github.io/react/)
 - [React router v5](https://github.com/ReactTraining/react-router)
-- [Material-ui](https://github.com/mui-org/material-ui)
+- [Ant Design](https://ant.design/)
 - [Jest](https://github.com/facebook/jest)
 - [Css modules](https://github.com/css-modules/css-modules)
 - [Axios](https://github.com/mzabriskie/axios) (For Client/Server communication)
 - [NestJs](https://github.com/nestjs/nest)
 
 ### Usage
+> Before running any of the following commands, you should cope `.env.example` to `.env` in the root directory, substituting in your own variables.<br/>
+> **Read the docker commands below to setup a local DB for the server.**
 
-- `npm run dev` - Client and server are in watch mode with source maps, opens [http://localhost:3000](http://localhost:3000)
+- `npm start` - Client and server are in watch mode with source maps, opens [http://localhost:3000](http://localhost:3000)
 - `npm run test` - Runs jest tests
 - `npm run build` - `dist` folder will include all the needed files, both client (Bundle) and server.
-- `npm start` - Just runs `node ./dist/server/server.js`
+- `npm run prod` - Just runs `node ./dist/server/server.js`, run `npm run build` before this.
+
+#### Docker commands
+
+- `docker-compose up` - Spins up a local Postgres image, reading environment variables from the root `.env` file.
+- `docker-compose -f ./docker-compose.build.yml build` - Builds a production docker image for the app. **Run the npm build script first**
+- `docker-compose -f ./docker-compose.build.yml up` - Spins up the production docker container. Builds it first if it has not been built yet.
 
 ### Config
 

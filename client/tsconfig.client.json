@@ -1,0 +1,8 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "paths": {
+      "typeorm": ["../node_modules/typeorm/typeorm-model-shim.js"]
+    }
+  }
+}

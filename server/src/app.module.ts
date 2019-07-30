@@ -1,22 +1,21 @@
-import { HttpModule, Module } from '@nestjs/common';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { AppController } from './app.controller';
-import { CardModule } from './card/card.module';
-import { ConfigModule, DbConfigService } from './config';
-import { ManifestManagerService } from './manifest-manager/manifest-manager.service';
+import { Module } from '@nestjs/common';
+import { RouterModule, Routes } from 'nest-router';
+import { ApiModule } from './api/api.module';
+import { SpaModule } from './spa/spaModule';
+
+const routes: Routes = [
+    {
+        path: '/api',
+        module: ApiModule,
+    }
+];
 
 @Module({
     imports: [
-        HttpModule,
-        ConfigModule,
-        TypeOrmModule.forRootAsync({
-            imports: [ConfigModule],
-            useExisting: DbConfigService,
-        }),
-        CardModule
+        RouterModule.forRoutes(routes), // setup the routes
+        ApiModule,
+        SpaModule
     ],
-    controllers: [AppController],
-    providers: [ManifestManagerService],
 })
 export class AppModule {
 }
