@@ -34,7 +34,7 @@ export const AppLayout: React.FC = () => {
                     <AppBreadcrumbs />
                     <AppRouter />
                 </Content>
-                <Footer style={{textAlign: 'center'}}>DRW ©2019 Created by Alexandre Giard</Footer>
+                <Footer style={{textAlign: 'center'}}>©2019 Created by Alexandre Giard</Footer>
             </Layout>
         </Layout>
     );
