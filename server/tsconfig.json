@@ -20,7 +20,8 @@
     "baseUrl": ".",
     "incremental": true,
     "paths": {
-      "@shared/*": ["../shared/*"]
+      "@shared/*": ["../shared/*"],
+      "@shared/": ["../shared/"]
     }
   },
   "files": [

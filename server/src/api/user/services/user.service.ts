@@ -1,14 +1,9 @@
-import {Injectable} from '@nestjs/common';
-import {Task} from '@shared/entities/task/task.entity';
-import {InfluxDBService} from '../../global/influxdb/influxdb.service';
+import { Injectable } from '@nestjs/common';
+import { User } from '../../../../../shared/entities/user/user.entity';
 
 @Injectable()
-export class TaskService {
-    constructor(private readonly influxClient: InfluxDBService) {
-    }
-
-    getAllTasks(): Task[] {
-        this.influxClient.getSeries({measurement: 'nis_issues', database: 'nis_wrkr'});
-        return [{defaultColor: 'somehitng', defaultFont: 'sm,ehtun', name: 'lkasjlkaj'}];
+export class UserService {
+    getAlUsers(): User[] {
+        return [new User({defaultColor: 'somehitng', defaultFont: 'sm,ehtun', name: {first: 'first', last: 'last'}})];
     }
 }

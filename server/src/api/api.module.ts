@@ -1,7 +1,7 @@
-import {HttpModule, Module} from '@nestjs/common';
-import {GlobalModule} from './global';
-import {TaskModule} from './task/task.module';
-import {RouterModule} from 'nest-router';
+import { HttpModule, Module } from '@nestjs/common';
+import { RouterModule } from 'nest-router';
+import { GlobalModule } from './global';
+import { UserModule } from './user/user.module';
 
 @Module({
     imports: [
@@ -9,12 +9,12 @@ import {RouterModule} from 'nest-router';
             path: '/api',
             module: ApiModule,
             children: [
-                TaskModule
+                UserModule
             ]
         }]),
-        TaskModule,
         HttpModule,
         GlobalModule,
+        UserModule,
     ],
     controllers: [],
     providers: [],

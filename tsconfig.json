@@ -16,9 +16,8 @@
     "jsx": "react",
     "baseUrl": ".",
     "paths": {
-      "@shared/*": [
-        "./shared/*"
-      ]
+      "@shared/*": ["../shared/*"],
+      "@shared/": ["../shared/"]
     }
   },
   "files": [

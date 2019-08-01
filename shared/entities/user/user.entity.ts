@@ -3,7 +3,7 @@ import { EntityBase } from '../entityBase';
 import { Name } from '../partials/name';
 
 @Entity()
-export class User extends EntityBase {
+export class User extends EntityBase<User> {
 
     @Column(type => Name)
     name: Name;
