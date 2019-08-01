@@ -17,8 +17,11 @@
     "types": [
       "node"
     ],
-    "baseUrl": "./",
-    "incremental": true
+    "baseUrl": ".",
+    "incremental": true,
+    "paths": {
+      "@shared/*": ["../shared/*"]
+    }
   },
   "files": [
     "./src/main.ts"

@@ -1,5 +1,5 @@
 import { Controller, Get, Render } from '@nestjs/common';
-import { ManifestManagerService } from '../api/manifest-manager/manifest-manager.service';
+import { ManifestManagerService } from './manifest-manager/manifest-manager.service';
 
 @Controller()
 export class SpaController {

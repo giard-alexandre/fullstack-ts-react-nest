@@ -1,15 +1,15 @@
 import { HttpModule, Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { ConfigModule, DbConfigService } from '../api/config';
-import { ManifestManagerService } from '../api/manifest-manager/manifest-manager.service';
+import { GlobalModule, DbConfigService } from '../api/global';
+import { ManifestManagerService } from './manifest-manager/manifest-manager.service';
 import { SpaController } from './spa.controller';
 
 @Module({
     imports: [
         HttpModule,
-        ConfigModule,
+        GlobalModule,
         TypeOrmModule.forRootAsync({
-            imports: [ConfigModule],
+            imports: [GlobalModule],
             useExisting: DbConfigService,
         }),
     ],

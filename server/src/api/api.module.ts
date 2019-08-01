@@ -1,24 +1,24 @@
-import { HttpModule, Module } from '@nestjs/common';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { ApiController } from './api.controller';
-import { CardModule } from './card/card.module';
-import { ConfigModule, DbConfigService } from './config';
-import { ManifestManagerService } from './manifest-manager/manifest-manager.service';
-import { UserModule } from './user/user.module';
+import {HttpModule, Module} from '@nestjs/common';
+import {GlobalModule} from './global';
+import {TaskModule} from './task/task.module';
+import {RouterModule} from 'nest-router';
 
 @Module({
     imports: [
+        RouterModule.forRoutes([{
+            path: '/api',
+            module: ApiModule,
+            children: [
+                TaskModule
+            ]
+        }]),
+        TaskModule,
         HttpModule,
-        ConfigModule,
-        TypeOrmModule.forRootAsync({
-            imports: [ConfigModule],
-            useExisting: DbConfigService,
-        }),
-        CardModule,
-        UserModule
+        GlobalModule,
     ],
-    controllers: [ApiController],
-    providers: [ManifestManagerService],
+    controllers: [],
+    providers: [],
+
 })
 export class ApiModule {
 }

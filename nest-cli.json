@@ -1,5 +1,5 @@
 {
   "language": "ts",
   "collection": "@nestjs/schematics",
-  "sourceRoot": "server/src"
+  "sourceRoot": "server/src/api"
 }

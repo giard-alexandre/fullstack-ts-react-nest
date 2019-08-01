@@ -13,7 +13,13 @@
       "es2015",
       "dom"
     ],
-    "jsx": "react"
+    "jsx": "react",
+    "baseUrl": ".",
+    "paths": {
+      "@shared/*": [
+        "./shared/*"
+      ]
+    }
   },
   "files": [
     "./types.d.ts",
