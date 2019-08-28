@@ -30,7 +30,7 @@ export const AppLayout: React.FC = () => {
             <AppSider state={drawerState} />
             <Layout>
                 <AppHeader state={drawerState} />
-                <Content style={{padding: '0 16px', marginTop: 64}}>
+              <Content style={{padding: '0 16px'}}>
                     <AppBreadcrumbs />
                     <AppRouter />
                 </Content>
