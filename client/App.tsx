@@ -16,7 +16,7 @@ notification.config({
 const AppImpl: React.FC = () => {
     return (
         <BrowserRouter>
-            <div className='App'>
+            <div className='app'>
                 <AppLayout />
             </div>
         </BrowserRouter>

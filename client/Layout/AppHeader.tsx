@@ -16,7 +16,7 @@ export const AppHeader: React.FC<ILayoutProps> = props => {
     };
 
     return (
-      <Header style={{width: '100%', background: '#fff', padding: 0}}>
+        <Header style={{ width: '100%', background: '#fff', padding: 0 }}>
             <Icon
                 className={styles.trigger}
                 type={drawerCollapsed ? 'menu-unfold' : 'menu-fold'}

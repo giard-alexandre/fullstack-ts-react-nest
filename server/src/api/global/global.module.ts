@@ -1,12 +1,21 @@
-import { Global, Module } from '@nestjs/common';
+import { Global, HttpModule, Module } from '@nestjs/common';
+import { Agent } from 'https';
 import { ConfigService } from './config/config.service';
 import { DbConfigService } from './config/db-config/db-config.service';
-import {InfluxDBService} from './influxdb/influxdb.service';
 
 @Global()
 @Module({
-    providers: [ConfigService, DbConfigService, InfluxDBService],
-    exports: [ConfigService, DbConfigService, InfluxDBService]
+    imports: [
+        HttpModule.register({
+            timeout: 5000,
+            maxRedirects: 5,
+            httpsAgent: new Agent({
+                rejectUnauthorized: false
+            })
+        }),
+    ],
+    providers: [ConfigService, DbConfigService],
+    exports: [ConfigService, DbConfigService]
 })
 export class GlobalModule {
 }
