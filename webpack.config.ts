@@ -72,7 +72,7 @@ const config: webpack.Configuration = {
                     {
                         loader: 'less-loader',
                         options: {
-                            javascriptEnabled: true
+                            javascriptEnabled: true,
                             // modifyVars: themeVariables,
                         }
                     },
