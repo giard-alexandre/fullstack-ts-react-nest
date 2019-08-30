@@ -6,7 +6,7 @@ import { UserList } from '../../User/UserList';
 
 export const AppRouter: React.FC = () => {
     return (
-        <main style={{background: '#fff'}}>
+        <main style={{ background: '#fff' }}>
             <Switch>
                 <Route exact path='/' component={Home} />
                 <Route path='/about' component={About} />

@@ -3,7 +3,7 @@ import * as React from 'react';
 import styles from './AppHeader.less';
 import { ILayoutProps } from './AppLayout';
 
-const {Header} = Layout;
+const { Header } = Layout;
 
 export const AppHeader: React.FC<ILayoutProps> = props => {
 

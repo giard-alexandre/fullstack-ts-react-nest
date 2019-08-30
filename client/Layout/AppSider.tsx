@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import { ILayoutProps } from './AppLayout';
 import styles from './AppSider.less';
 
-const {Sider} = Layout;
-const {SubMenu} = Menu;
+const { Sider } = Layout;
+const { SubMenu } = Menu;
 
 export const AppSider: React.FC<ILayoutProps> = props => {
     const {
