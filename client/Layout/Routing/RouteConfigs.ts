@@ -4,11 +4,12 @@ import { About } from '../../About/About';
 import { Home } from '../../Home/Home';
 import { UserList } from '../../User/UserList';
 
-const routesConfig: RouteConfig[] = [
+export const routesConfig: RouteConfig[] = [
     {
         path: '/',
         component: Home,
-        exact: true
+        exact: true,
+        breadcrumbName: 'Home'
     },
     {
         path: '/about',
@@ -19,5 +20,3 @@ const routesConfig: RouteConfig[] = [
         component: UserList
     }
 ];
-
-export default routesConfig;
