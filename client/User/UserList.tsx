@@ -6,7 +6,7 @@ const columns = [
         title: 'Name',
         dataIndex: 'name',
         key: 'name',
-        render: text => <a href='javascript:;'>{text}</a>,
+        render: text => <a href=''>{text}</a>,
     },
     {
         title: 'Age',
@@ -24,18 +24,18 @@ const columns = [
         dataIndex: 'tags',
         render: tags => (
             <span>
-        {tags.map(tag => {
-            let color = tag.length > 5 ? 'geekblue' : 'green';
-            if (tag === 'loser') {
-                color = 'volcano';
-            }
-            return (
-                <Tag color={color} key={tag}>
-                    {tag.toUpperCase()}
-                </Tag>
-            );
-        })}
-      </span>
+                {tags.map(tag => {
+                    let color = tag.length > 5 ? 'geekblue' : 'green';
+                    if (tag === 'loser') {
+                        color = 'volcano';
+                    }
+                    return (
+                        <Tag color={color} key={tag}>
+                            {tag.toUpperCase()}
+                        </Tag>
+                    );
+                })}
+            </span>
         ),
     },
     {
@@ -43,10 +43,10 @@ const columns = [
         key: 'action',
         render: (text, record) => (
             <span>
-        <a href='javascript:;'>Invite {record.name}</a>
-        <Divider type='vertical' />
-        <a href='javascript:;'>Delete</a>
-      </span>
+                <a href=''>Invite {record.name}</a>
+                <Divider type='vertical' />
+                <a href=''>Delete</a>
+            </span>
         ),
     },
 ];
@@ -76,5 +76,5 @@ const data = [
 ];
 
 export const UserList: React.FC = () => {
-    return <Table columns={columns} dataSource={data} />;
+    return (<Table columns={columns} dataSource={data} />);
 };

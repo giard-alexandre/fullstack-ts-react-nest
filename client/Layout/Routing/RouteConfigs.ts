@@ -17,6 +17,7 @@ export const routesConfig: RouteConfig[] = [
     },
     {
         path: '/users',
-        component: UserList
+        component: UserList,
+        breadcrumbName: 'Users'
     }
 ];
