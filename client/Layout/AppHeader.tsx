@@ -1,5 +1,5 @@
 import { Icon, Layout } from 'antd';
-import * as React from 'react';
+import React from 'react';
 import styles from './AppHeader.less';
 import { ILayoutProps } from './AppLayout';
 

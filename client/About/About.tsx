@@ -1,6 +1,6 @@
 import { Card } from 'antd';
 import Typography from 'antd/lib/typography';
-import * as React from 'react';
+import React from 'react';
 
 const {Paragraph} = Typography;
 

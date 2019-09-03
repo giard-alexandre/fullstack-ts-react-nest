@@ -1,5 +1,5 @@
 import { Layout } from 'antd';
-import * as React from 'react';
+import React from 'react';
 import { Dispatch, SetStateAction } from 'react';
 import { AppHeader } from './AppHeader';
 import { AppSider } from './AppSider';

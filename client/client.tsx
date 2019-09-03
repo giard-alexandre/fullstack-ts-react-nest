@@ -1,5 +1,6 @@
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Favicon from 'react-favicon';
 // noinspection ES6UnusedImports
 import { hot } from 'react-hot-loader';
 import { App } from './App';
@@ -15,7 +16,7 @@ const favicon = require('../assets/images/logo.png');
 
 ReactDOM.render(
     <React.Fragment>
-        <link rel='shortcut icon' type='image/x-icon' href={favicon} />
+        <Favicon url={favicon}/>
         <App />
     </React.Fragment>
     , document.getElementById('app'));

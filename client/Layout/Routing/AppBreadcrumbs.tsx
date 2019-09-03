@@ -1,13 +1,13 @@
 import { Breadcrumb } from 'antd';
-import * as React from 'react';
+import React from 'react';
 import { matchRoutes, MatchedRoute } from 'react-router-config';
 import { Link } from 'react-router-dom';
 
 import { routesConfig } from './RouteConfigs';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, FC } from 'react';
 import { withRouter, match } from 'react-router';
 
- export const AppBreadcrumbs: React.FC = withRouter(({history}) => {
+ export const AppBreadcrumbs: FC<{}> = withRouter(({history}) => {
     const [items, setItems] = useState([]);
 
     const getNameFromMatch = (route: MatchedRoute<{}>) => {
@@ -30,7 +30,7 @@ import { withRouter, match } from 'react-router';
         // Get the route info
         const branch = matchRoutes(routesConfig, location.pathname);
         const breadcrumbs = branch.map((r, index) => {
-            var bcName;
+            let bcName;
             if(r.route && r.route.breadcrumbName) {
                 bcName = r.route.breadcrumbName;
             } else {
