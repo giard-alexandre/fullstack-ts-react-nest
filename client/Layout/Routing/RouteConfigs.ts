@@ -1,4 +1,3 @@
-import react from 'react';
 import { RouteConfig } from 'react-router-config';
 import { About } from '../../About/About';
 import { Home } from '../../Home/Home';
@@ -18,6 +17,11 @@ export const routesConfig: RouteConfig[] = [
     {
         path: '/users',
         component: UserList,
-        breadcrumbName: 'Users'
+        breadcrumbName: 'Users',
+        routes: [
+            {
+                path: '/users/:userName'
+            }
+        ]
     }
 ];
