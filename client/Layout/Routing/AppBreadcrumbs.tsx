@@ -2,7 +2,7 @@ import { Breadcrumb } from 'antd';
 import React, { ComponentClass, useEffect, useState } from 'react';
 import { withRouter } from 'react-router';
 import { MatchedRoute, matchRoutes } from 'react-router-config';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import { routesConfig } from './RouteConfigs';
 
@@ -37,7 +37,7 @@ export const AppBreadcrumbs: ComponentClass = withRouter(({ history }) => {
             }
             return (
                 <Breadcrumb.Item key={index}>
-                    <Link to={r.match.url}>{bcName}</Link>
+                    <NavLink to={r.match.url}>{bcName}</NavLink>
                 </Breadcrumb.Item>
             );
         });

@@ -1,12 +1,13 @@
-import { Table, Divider, Tag } from 'antd';
+import { Divider, Table, Tag } from 'antd';
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const columns = [
     {
         title: 'Name',
         dataIndex: 'name',
         key: 'name',
-        render: text => <a href=''>{text}</a>,
+        render: text => <NavLink to={`/users/${text}`} href=''>{text}</NavLink>,
     },
     {
         title: 'Age',
