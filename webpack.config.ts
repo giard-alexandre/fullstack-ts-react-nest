@@ -1,13 +1,14 @@
-import cssnano from 'cssnano';
-import fs from 'fs';
-import OpenBrowserPlugin from 'open-browser-webpack-plugin';
-import path from 'path';
+const cssnano = require('cssnano');
+import * as fs from 'fs';
+const OpenBrowserPlugin = require('open-browser-webpack-plugin');
+import * as path from 'path';
 import * as webpack from 'webpack';
 // noinspection ES6UnusedImports
-import * as webpackDevServer from 'webpack-dev-server';
-import ManifestPlugin from 'webpack-manifest-plugin';
+const webpackDevServer = require('webpack-dev-server');
 
 import { IS_DEV, SERVER_PORT, WEBPACK_PORT } from './server/config';
+
+const ManifestPlugin = require('webpack-manifest-plugin');
 
 const plugins = [new ManifestPlugin()];
 
@@ -16,6 +17,8 @@ const themeVariables = lessToJs(fs.readFileSync(path.join(__dirname, './ant-them
 
 // import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 // plugins.push(new BundleAnalyzerPlugin());
+
+console.log(`IS DEV ${IS_DEV}`);
 
 if (IS_DEV) {
     plugins.push(new OpenBrowserPlugin({url: `http://localhost:${SERVER_PORT}`}));

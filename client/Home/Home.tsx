@@ -1,6 +1,6 @@
 import { Card, Col, Row } from 'antd';
 import Typography from 'antd/lib/typography';
-import * as React from 'react';
+import React from 'react';
 
 import styles from './Home.less';
 import { NotifDemo } from './NotifDemo';

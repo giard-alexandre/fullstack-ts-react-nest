@@ -1,5 +1,5 @@
 import { Button, Card, notification } from 'antd';
-import * as React from 'react';
+import React from 'react';
 
 export const NotifDemo: React.FunctionComponent = () => {
 

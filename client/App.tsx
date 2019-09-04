@@ -4,8 +4,8 @@ import { hot } from 'react-hot-loader';
 import { BrowserRouter } from 'react-router-dom';
 
 import './App.less';
-// Pages
 import { AppLayout } from './Layout/AppLayout';
+// Pages
 
 notification.config({
     placement: 'topRight',
