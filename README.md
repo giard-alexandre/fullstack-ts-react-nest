@@ -76,7 +76,7 @@ git push -u origin master
 - [Ant Design](https://ant.design/)
 - [Jest](https://github.com/facebook/jest)
 - [Css modules](https://github.com/css-modules/css-modules)
-- [Axios](https://github.com/mzabriskie/axios) (For Client/Server communication)
+- [Axios-Observable](https://github.com/zhaosiyang/axios-observable) (For Client/Server communication)
 - [NestJs](https://github.com/nestjs/nest)
 
 ### Usage
