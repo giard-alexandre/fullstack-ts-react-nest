@@ -105,6 +105,7 @@
     "nest-router": "^1.0.9",
     "pg": "^7.12.1",
     "react-favicon": "0.0.17",
+    "react-router-breadcrumbs-hoc": "^3.2.3",
     "react-router-config": "^5.0.1",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^6.5.3",

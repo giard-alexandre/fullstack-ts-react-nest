@@ -1,14 +1,15 @@
+import { BreadcrumbsRoute } from 'react-router-breadcrumbs-hoc';
 import { RouteConfig } from 'react-router-config';
 import { About } from '../../About/About';
 import { Home } from '../../Home/Home';
 import { UserList } from '../../User/UserList';
 
-export const routesConfig: RouteConfig[] = [
+export const routesConfig: Array<RouteConfig | Partial<BreadcrumbsRoute>> = [
     {
         path: '/',
         component: Home,
         exact: true,
-        breadcrumbName: 'Home'
+        breadcrumb: 'Home'
     },
     {
         path: '/about',
@@ -17,7 +18,7 @@ export const routesConfig: RouteConfig[] = [
     {
         path: '/users',
         component: UserList,
-        breadcrumbName: 'Users',
+        breadcrumb: 'Users',
         routes: [
             {
                 path: '/users/:userName'
