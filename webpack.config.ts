@@ -18,8 +18,6 @@ const themeVariables = lessToJs(fs.readFileSync(path.join(__dirname, './ant-them
 // import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 // plugins.push(new BundleAnalyzerPlugin());
 
-console.log(`IS DEV ${IS_DEV}`);
-
 if (IS_DEV) {
     plugins.push(new OpenBrowserPlugin({url: `http://localhost:${SERVER_PORT}`}));
 }
