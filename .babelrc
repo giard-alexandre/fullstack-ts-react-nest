@@ -11,9 +11,11 @@
   ],
   "plugins": [
     "react-hot-loader/babel",
+      "babel-plugin-transform-typescript-metadata",
+      ["@babel/plugin-proposal-decorators", { "legacy": true }],
+      ["@babel/plugin-proposal-class-properties", { "loose": true }],
     "@babel/proposal-numeric-separator",
     "@babel/transform-runtime",
-    "@babel/proposal-class-properties",
     "@babel/proposal-object-rest-spread",
     ["import", { "libraryName": "antd", "style": true }]
   ]

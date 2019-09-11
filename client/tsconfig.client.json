@@ -1,7 +1,8 @@
 {
   "extends": "../tsconfig.json",
   "compilerOptions": {
-    "paths": {
+      "emitDecoratorMetadata": true,
+      "paths": {
       "typeorm": ["../node_modules/typeorm/typeorm-model-shim.js"]
     }
   }

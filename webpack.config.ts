@@ -10,6 +10,10 @@ import { IS_DEV, SERVER_PORT, WEBPACK_PORT } from './server/config';
 
 const ManifestPlugin = require('webpack-manifest-plugin');
 
+// Fix for TsconfigPathsPlugin
+process.env.TS_NODE_PROJECT = '';
+import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin';
+
 const plugins = [new ManifestPlugin()];
 
 const lessToJs = require('less-vars-to-js');
@@ -36,6 +40,9 @@ const config: webpack.Configuration = {
     resolve: {
         alias: {'react-dom': '@hot-loader/react-dom'},
         extensions: ['.js', '.ts', '.tsx'],
+        plugins: [
+            new TsconfigPathsPlugin({ configFile: path.join(__dirname, 'client', 'tsconfig.client.json') })
+        ]
     },
     optimization: {
         splitChunks: {
